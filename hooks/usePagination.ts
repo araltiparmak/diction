@@ -18,6 +18,6 @@ export function usePagination(initialIndex: number, itemsLength: number) {
   return {
     currentIndex,
     forward,
-    back,
+    back
   };
 }

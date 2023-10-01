@@ -1,7 +1,11 @@
 import React, { Suspense, useEffect } from "react";
 import { useColorScheme } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
+import {
+  DarkTheme,
+  DefaultTheme,
+  ThemeProvider
+} from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import { SplashScreen, Tabs } from "expo-router";
 import { TamaguiProvider, Text, Theme } from "tamagui";

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { doc, onSnapshot } from "firebase/firestore";
+
 import { FIRESTORE_DB } from "../firebaseConfig";
 
-export function useMenuItems(path:string):string[] {
-
+export function useMenuItems(path: string): string[] {
   const [menuItems, setMenuItems] = useState<string[]>([]);
 
   useEffect(() => {

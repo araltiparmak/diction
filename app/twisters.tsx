@@ -3,13 +3,12 @@ import { useRouter } from "expo-router";
 import { Button } from "tamagui";
 
 import { MyStack } from "../components/MyStack";
-import { capitalizeFirstLetter } from "../utils/TextUtils";
 import { useMenuItems } from "../hooks/useMenuItems";
+import { capitalizeFirstLetter } from "../utils/TextUtils";
 
 export default function Twisters() {
   const router = useRouter();
-  const exercisesMenuItems = useMenuItems("en/twisters")
-
+  const exercisesMenuItems = useMenuItems("en/twisters");
 
   return (
     <MyStack>

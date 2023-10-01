@@ -4,13 +4,22 @@ module.exports = {
   },
   extends: [
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "plugin:prettier/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:react-native/all",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   parser: "@typescript-eslint/parser",
   root: true,
-  plugins: ["simple-import-sort"],
+  plugins: [
+    "react",
+    "react-hooks",
+    "react-native",
+    "simple-import-sort",
+    "prettier"
+  ],
   rules: {
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/no-var-requires": "off",
@@ -40,5 +49,10 @@ module.exports = {
         ]
       }
     ]
+  },
+  settings: {
+    react: {
+      version: "detect"
+    }
   }
 };

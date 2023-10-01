@@ -3,12 +3,12 @@ import { useRouter } from "expo-router";
 import { Button } from "tamagui";
 
 import { MyStack } from "../components/MyStack";
-import { capitalizeFirstLetter } from "../utils/TextUtils";
 import { useMenuItems } from "../hooks/useMenuItems";
+import { capitalizeFirstLetter } from "../utils/TextUtils";
 
 export default function Exercises() {
   const router = useRouter();
-  const exercisesMenuItems = useMenuItems("en/exercises")
+  const exercisesMenuItems = useMenuItems("en/exercises");
 
   return (
     <MyStack>
