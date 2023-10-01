@@ -1,13 +1,9 @@
 import React, { Suspense, useEffect } from "react";
 import { useColorScheme } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider
-} from "@react-navigation/native";
+import { DarkTheme, DefaultTheme, ThemeProvider } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import { SplashScreen, Tabs, useRouter } from "expo-router";
+import { SplashScreen, Tabs } from "expo-router";
 import { TamaguiProvider, Text, Theme } from "tamagui";
 
 import config from "../tamagui.config";
@@ -15,8 +11,6 @@ import config from "../tamagui.config";
 SplashScreen.preventAutoHideAsync();
 
 export default function Layout() {
-  const router = useRouter();
-
   const colorScheme = useColorScheme();
 
   const [loaded] = useFonts({

@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { Stack, useLocalSearchParams, useRouter } from "expo-router";
+import { Stack, useLocalSearchParams } from "expo-router";
 import { doc, onSnapshot } from "firebase/firestore";
-import { Button, View, XStack } from "tamagui";
+import { Button, XStack, YStack } from "tamagui";
 
 import ExerciseCard from "../../components/ExerciseCard";
 import { FIRESTORE_DB } from "../../firebaseConfig";
 import { capitalizeFirstLetter } from "../../utils/TextUtils";
+import { MyStack } from "../../components/MyStack";
+import { usePagination } from "../../hooks/usePagination";
 
 export default function Index() {
-  const router = useRouter();
 
   const local = useLocalSearchParams();
-  const [exerciseIndex, setExerciseIndex] = useState(0);
   const [exercises, setExercises] = useState([]);
+  const { currentIndex, forward, back } = usePagination(0, exercises.length);
+
   useEffect(() => {
     const exercisesRef = doc(FIRESTORE_DB, "en/" + local.group);
 
@@ -24,28 +26,18 @@ export default function Index() {
     });
   }, [local.exercise]);
 
-  const forward = () => {
-    if (exerciseIndex < exercises.length - 1) {
-      setExerciseIndex(exerciseIndex + 1);
-    }
-  };
-
-  const back = () => {
-    if (exerciseIndex > 0) {
-      setExerciseIndex(exerciseIndex - 1);
-    }
-  };
-
   return (
-    <View>
+    <MyStack>
+      <YStack maxWidth={600} flex={2} alignItems={"center"} space>
       <Stack.Screen
         options={{ title: capitalizeFirstLetter(local.exercise) }}
       />
-      <ExerciseCard text={exercises[exerciseIndex]} />
-      <XStack>
+      <ExerciseCard text={exercises[currentIndex]} />
+      <XStack space>
         <Button onPress={() => back()}>Back</Button>
         <Button onPress={() => forward()}>Next</Button>
       </XStack>
-    </View>
+      </YStack>
+    </MyStack>
   );
 }
