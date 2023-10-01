@@ -1,20 +1,22 @@
-import { Suspense, useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 import { useColorScheme } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import {
   DarkTheme,
   DefaultTheme,
   ThemeProvider
 } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import { SplashScreen, Stack } from "expo-router";
+import { SplashScreen, Tabs, useRouter } from "expo-router";
 import { TamaguiProvider, Text, Theme } from "tamagui";
 
-import { MySafeAreaView } from "../components/MySafeAreaView";
 import config from "../tamagui.config";
 
 SplashScreen.preventAutoHideAsync();
 
 export default function Layout() {
+  const router = useRouter();
+
   const colorScheme = useColorScheme();
 
   const [loaded] = useFonts({
@@ -37,13 +39,81 @@ export default function Layout() {
           <ThemeProvider
             value={colorScheme === "light" ? DefaultTheme : DarkTheme}
           >
-            <MySafeAreaView>
-              <Stack
-                screenOptions={{
-                  headerShown: false
+            {/*<MySafeAreaView>*/}
+            {/*  <Stack*/}
+            {/*    screenOptions={{*/}
+            {/*      headerShown: false*/}
+            {/*    }}*/}
+            {/*  ></Stack>*/}
+            {/*</MySafeAreaView>*/}
+            <Tabs>
+              <Tabs.Screen
+                name="index"
+                options={{
+                  title: "Home",
+                  tabBarIcon(props) {
+                    return (
+                      <MaterialCommunityIcons
+                        name="home"
+                        {...props}
+                      />
+                    );
+                  }
                 }}
               />
-            </MySafeAreaView>
+
+              <Tabs.Screen
+                name="twisters"
+                options={{
+                  title: "Twisters",
+                  tabBarIcon(props) {
+                    return (
+                      <MaterialCommunityIcons
+                        name="home"
+                        {...props}
+                      />
+                    );
+                  }
+                }}
+              />
+
+              <Tabs.Screen
+                name="exercises"
+                options={{
+                  title: "Exercises",
+                  tabBarIcon(props) {
+                    return (
+                      <MaterialCommunityIcons
+                        name="home"
+                        {...props}
+                      />
+                    );
+                  }
+                }}
+              />
+
+              <Tabs.Screen
+                name="settings"
+                options={{
+                  title: "Settings",
+                  tabBarIcon(props) {
+                    return (
+                      <MaterialCommunityIcons
+                        name="home"
+                        {...props}
+                      />
+                    );
+                  }
+                }}
+              />
+
+              <Tabs.Screen
+                name="exercise/[exercise]"
+                options={{
+                  href: null
+                }}
+              />
+            </Tabs>
           </ThemeProvider>
         </Theme>
       </Suspense>

@@ -1,5 +1,6 @@
 {
   "expo": {
+
     "scheme": "tamagui-app",
     "userInterfaceStyle": "automatic",
     "splash": {
@@ -9,6 +10,28 @@
     },
     "icon": "./assets/icon.png",
     "name": "diction",
-    "slug": "diction"
+    "slug": "diction",
+    "extra": {
+      "eas": {
+        "projectId": "f9084d33-1616-4535-bcc6-391c49a69953"
+      }
+    },
+    "ios": {
+      "bundleIdentifier": "com.araltiparmak.diction"
+    },
+    "plugins": [
+      "@react-native-firebase/app",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ]
+    ],
+    "android": {
+      "package": "com.araltiparmak.diction"
+    }
   }
 }

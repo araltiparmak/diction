@@ -1,0 +1,3 @@
+type Exercises = {
+  exercise: string[];
+};
