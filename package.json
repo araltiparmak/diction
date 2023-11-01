@@ -63,7 +63,7 @@
     "eslint-plugin-react-native": "^4.1.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "prettier": "^3.0.3",
-    "semantic-release": "19.0.5",
+    "semantic-release": "22.0.6",
     "typescript": "^5.2.2"
   },
   "volta": {
