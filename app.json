@@ -1,7 +1,14 @@
 {
   "expo": {
-    "name": "diction2",
-    "slug": "diction2",
+    "jsEngine": "hermes",
+    "fonts": [
+      {
+        "asset": "assets/fonts/Forum-Regular.ttf",
+        "family": "Forum"
+      }
+    ],
+    "name": "diction",
+    "slug": "diction",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -14,7 +21,9 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "jsEngine": "jsc"
+
     },
     "android": {
       "adaptiveIcon": {
